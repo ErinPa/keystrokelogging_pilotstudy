@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css">
+    
+<body>
+
+<h2>Spontaneous task 1</h2>
+Answer the prompt below in at least 100 words. <br>
+Click the <b>download button</b> when you are finished. 
+
+<br>
+
+<p class="float-left" id='prompt' >Do you agree or disagree with the following statement? It is better for children to grow up in the countryside than in a large city. Use specific reasons and examples to develop your essay.</p>
+<br style="clear:both" />
+
+
+<textarea
+cols="72" rows="10" id="lname" name="lname" spellcheck="false">
+</textarea>
+<br style="clear:both" />
+
+<button onclick="countWords()">
+    Count Words
+</button>
+<br>
+
+
+<p> Word Count:
+    <span id="show">0</span>
+</p>
+
+<div id="buttons">
+    <a id="downloadAnchorElem"><span>Download</span></a>
+   
+  </div>
+
+
+  <div id="buttons">
+  <a id="resetTexbox"><span>Reset</span></a>
+</div>
+
+<br style="clear:both" />
+<br style="clear:both" />
+<div id="buttons2" class='btn2'>
+    <a  href="Spontaneous_task2.html"><span>Next</span></a>
+  </div>
+
+
+  <script src="js/keylog_free1.js"></script>
+  <br style="clear:both" />
+  <br style="clear:both" />
+
+  <script>
+    function countWords() {
+
+        // Get the input text value
+        var text = document
+            .getElementById("lname").value;
+
+        // Initialize the word counter
+        var numWords = 0;
+
+        // Loop through the text
+        // and count spaces in it
+        for (var i = 0; i < text.length; i++) {
+            var currentCharacter = text[i];
+
+            // Check if the character is a space
+            if (currentCharacter == " ") {
+                numWords += 1;
+            }
+        }
+
+        // Add 1 to make the count equal to
+        // the number of words
+        // (count of words = count of spaces + 1)
+        numWords += 1;
+
+        // Display it as output
+        document.getElementById("show")
+            .innerHTML = numWords;
+    }
+</script>
+</body>
+
+
+</html>
+
