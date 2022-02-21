@@ -110,7 +110,7 @@ downloadLink.addEventListener('click',  () => {
   ibox.disabled = true;
 
   downloadLink.setAttribute("href", dataStr);
-  downloadLink.setAttribute("download", "keylogs-" + today + "_copy" +".csv");
+  downloadLink.setAttribute("download", "keylogs-" + today + "_copy1" +".csv");
 });
 
 
