@@ -112,8 +112,60 @@ downloadLink.addEventListener('click', (res) => {
                 encodeURIComponent(JSON.stringify(dset));
   var dlAnchorElem = document.getElementById('downloadAnchorElem');
 
+
+  //Handle unique identifier
+  let user = checkCookie();
   // Copy the records into the DOM
   let today = Date.now();
   downloadLink.setAttribute("href", dataStr);
-  downloadLink.setAttribute("download", "keylogs-" + today +"_free1" + ".json");
+  downloadLink.setAttribute("download", "keylogs-"+ user+ "_"+ today +"_free1" + ".json");
 });
+
+
+
+
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  let expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie() {
+  let user = getCookie("typing_experiment_unique_id");
+  if (user != "") {
+    // alert("Welcome again " + user);
+    console.log(user);
+    return user;
+  } else {
+    // alert("New user created " + user);
+    random_id = Math.random()
+    var things = ['Rock', 'Paper', 'Scissor', 'Water', 'Earth','Cookie','Bear','Bird','Cat','Dog','Music','River','Beach','Clock','Minute','Fish','Wave',"Coffee",'Tea','Screen','Bottle','Mouse','Lamp','Table','Piano','Guitar','Note','Pencil','Sweater','Baseball','Hat'];
+    var thing = things[Math.floor(random_id*things.length)];
+
+    var numbers = ['1', '2', '3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35']
+    var number = numbers[Math.floor(random_id*numbers.length)];
+    user = thing+number;
+    console.log("creating user");
+    console.log(user);
+    setCookie("typing_experiment_unique_id", user, 10);//set for 10 days
+
+    return user;
+  }
+}
+
