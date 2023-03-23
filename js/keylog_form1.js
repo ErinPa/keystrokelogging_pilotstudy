@@ -118,7 +118,7 @@ downloadLink.addEventListener('click', (res) => {
   // Copy the records into the DOM
   let today = Date.now();
   downloadLink.setAttribute("href", dataStr);
-  downloadLink.setAttribute("download", "keylogs-"+ user+ "_"+ today +"_free3" + ".json");
+  downloadLink.setAttribute("download", "keylogs-"+ user+ "_"+ today +"_form3" + ".json");
 });
 
 
